@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ThemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +18,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/users', function(){
+    return view('users');
+});
+
+Route::get('/mx', function(){
+
+    // return view('dashboard.admin', ['numbers' => $data]);
+    return view('index');
+});
+
+// test
+// Route::get('/index', function(){
+//     $data = ['1','3','3'];
+
+//     // return view('dashboard.admin', ['numbers' => $data]);
+//     return view('dashboard.admin', compact('data'));
+// });
+
+// Route ThemController
+
+Route::controller(ThemController::class)->group(function(){
+    Route::get('/show', 'show');
+    Route::get('/users', 'users');
+});
+
+
+Route::controller(AdminController::class)->group(function(){
+    Route::get('admin/users', 'users');
+    Route::get('admin/events', 'events');
 });
