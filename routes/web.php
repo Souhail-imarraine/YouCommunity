@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\EventsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\EventController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,10 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware(['auth']);
-Route::get('/events', [EventsController::class, 'events'])->name('events')->middleware(['auth']);
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->name('logout');
+Route::resource('events', EventController::class)->middleware(['auth']);
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+
+Route::post('/events/creates', [EventController::class, 'store'])->name('events.create');
+
 require __DIR__.'/auth.php';

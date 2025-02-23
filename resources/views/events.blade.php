@@ -54,11 +54,17 @@
                     </svg>
                     Utilisateurs
                 </a>
-                <a href="#" class="flex items-center px-4 py-3 text-white bg-gradient-to-r from-blue-800 to-emerald-600 rounded-lg">
+                <a href="/events" class="flex items-center px-4 py-3 text-white bg-gradient-to-r from-blue-800 to-emerald-600 rounded-lg">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
                     Événements
+                </a>
+                <a href="/profile" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                    Profile
                 </a>
             </nav>
 
@@ -282,13 +288,6 @@
                             <input type="date" id="editStartDate" name="start_date"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
                         </div>
-                        <div>
-                            <label for="editEndDate" class="block text-sm font-medium text-gray-700 mb-1">
-                                Date de fin
-                            </label>
-                            <input type="date" id="editEndDate" name="end_date"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
-                        </div>
                     </div>
 
                     <!-- Catégorie -->
@@ -354,8 +353,9 @@
                 </div>
 
                 <!-- Form -->
-                <form class="space-y-4">
+                <form class="space-y-4" action="{{route(events.create)}}" method="POST">
                     <!-- Image de l'événement -->
+                     @csrf
                     <div class="flex flex-col items-center space-y-3">
                         <img id="addEventImage" src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                              alt="Image de l'événement" class="w-full h-40 rounded-lg object-cover">
@@ -369,33 +369,26 @@
                         <label for="addEventName" class="block text-sm font-medium text-gray-700 mb-1">
                             Nom de l'événement
                         </label>
-                        <input type="text" id="addEventName" name="name"
+                        <input type="text" id="addEventName" name="titre"
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
                     </div>
 
                     <!-- Lieu -->
                     <div>
                         <label for="addEventLocation" class="block text-sm font-medium text-gray-700 mb-1">
-                            Lieu
+                        adresse
                         </label>
-                        <input type="text" id="addEventLocation" name="location"
+                        <input type="text" id="addEventLocation" name="adresse"
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
                     </div>
 
                     <!-- Date -->
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 gap-4">
                         <div>
                             <label for="addStartDate" class="block text-sm font-medium text-gray-700 mb-1">
                                 Date de début
                             </label>
-                            <input type="date" id="addStartDate" name="start_date"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="addEndDate" class="block text-sm font-medium text-gray-700 mb-1">
-                                Date de fin
-                            </label>
-                            <input type="date" id="addEndDate" name="end_date"
+                            <input type="datetime-local" id="addStartDate" name="date_heure"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
                         </div>
                     </div>
@@ -419,7 +412,7 @@
                         <label for="addCapacity" class="block text-sm font-medium text-gray-700 mb-1">
                             Capacité maximale
                         </label>
-                        <input type="number" id="addCapacity" name="capacity"
+                        <input type="number" id="addCapacity" name="max_participants"
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
                     </div>
 
@@ -438,7 +431,7 @@
                             class="flex-1 px-4 py-2 bg-gradient-to-r from-blue-800 to-emerald-600 text-white rounded-lg hover:opacity-90 transition duration-200">
                             Enregistrer
                         </button>
-                        <button type="button" onclick="closeAddModal()"
+                        <button type="butston" onclick="closeAddModal()"
                             class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200">
                             Annuler
                         </button>

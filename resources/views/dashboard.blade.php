@@ -54,7 +54,7 @@
                     </svg>
                     Dashboard
                 </a>
-                <a href="#"
+                <a href="/dashboard"
                     class="flex items-center px-4 py-3 text-white bg-gradient-to-r from-blue-800 to-emerald-600 rounded-lg">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,12 +62,18 @@
                     </svg>
                     Utilisateurs
                 </a>
-                <a href="/events" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+                <a href="{{route('events.index')}}" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     Événements
+                </a>
+                <a href="/profile" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    Profile
                 </a>
             </nav>
 
