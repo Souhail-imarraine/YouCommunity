@@ -41,4 +41,5 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 
 Route::post('/events/creates', [EventController::class, 'store'])->name('events.create');
 
+Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
 require __DIR__.'/auth.php';
